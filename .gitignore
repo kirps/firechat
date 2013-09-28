@@ -9,3 +9,6 @@ _site
 
 # Compiled
 build
+
+*.sublime-project
+*.sublime-workspace
