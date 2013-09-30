@@ -17,7 +17,9 @@
     "url": "http://firebase.mit-license.org/"
   }],
   "version": "0.1.0",
-  "dependencies": {},
+  "dependencies": {
+    "express": "3.1.x"
+  },
   "devDependencies": {
     "grunt": "~0.4.0",
     "grunt-contrib-clean": "~0.4.1",
@@ -28,6 +30,10 @@
     "grunt-contrib-uglify": "~0.1.0",
     "grunt-contrib-watch": "~0.1.4",
     "grunt-docco": "~0.2.0"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
   },
   "keywords": ["firebase", "chat", "talk", "real-time", "synchronization", "websocket"]
 }

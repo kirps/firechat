@@ -1,0 +1,18 @@
+<head></head>
+<body>
+
+    <div id="firechat-wrapper"></div>
+    <script type='text/javascript'>
+      var chatRef = new Firebase('https://flagchat.firebaseio.com/chat');
+      var chat = new FirechatUI(chatRef, document.getElementById("firechat-wrapper"));
+      chat.setUser('<user-id>', '<display-name>');
+    </script>
+
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+    <!-- Download from https://github.com/firebase/Firechat -->
+    <link rel="stylesheet" href="firechat-default.css" />
+    <script src="firechat-default.js"></script>
+
+</body>
