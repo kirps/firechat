@@ -1,6 +1,16 @@
 <head></head>
 <body>
 
+
+    <div class="example github">
+        <div class="icon"></div>
+        <div class="description">
+            <h4>GitHub</h4>
+            <p><a href="javascript:login('github');">Launch demo »</a></p>
+        </div>
+    </div>
+            
+
     <div id="firechat-wrapper"></div>
     <script type='text/javascript'>
       var chatRef = new Firebase('https://flagchat.firebaseio.com/chat');
@@ -9,10 +19,34 @@
     </script>
 
     <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
     <!-- Download from https://github.com/firebase/Firechat -->
     <link rel="stylesheet" href="firechat-default.css" />
     <script src="firechat-default.js"></script>
+    <script type="text/javascript">
+      
+      // FirebaseSimpleLogin demo instantiation
+      var firebaseRef = new Firebase("https://demos.firebaseio.com");
+      var auth = new FirebaseSimpleLogin(firebaseRef, function(error, user) {
+        if (error) {
+          // an error occurred while attempting login
+          alert(error);
+        } else if (user) {
+          // user authenticated with Firebase
+          alert('User ID: ' + user.id + ', Provider: ' + user.provider);
+          
+          // Log out so we can log in again with a different provider.
+          auth.logout();
+        } else {
+          // user is logged out
+        }
+      });
+      function login(provider) {
+        auth.login(provider);
+      }
+
+    </script>
 
 </body>
