@@ -20,19 +20,24 @@
             
 
     <div id="firechat-wrapper"></div>
-    <script type='text/javascript'>
-      var chatRef = new Firebase('https://flagchat.firebaseio.com/chat');
-      var chat = new FirechatUI(chatRef, document.getElementById("firechat-wrapper"));
-      chat.setUser('<user-id>', '<display-name>');
-    </script>
 
     <script src="https://cdn.firebase.com/v0/firebase.js"></script>
     <script src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-
     <!-- Download from https://github.com/firebase/Firechat -->
-    <link rel="stylesheet" href="firechat-default.css" />
-    <script src="firechat-default.js"></script>
+    <link rel="stylesheet" href="build/firechat-default.css" />
+    <script src="build/firechat-default.js"></script>
+
+    <script type='text/javascript'>
+        //var chatRef = new Firebase('https://flagchat.firebaseio.com/chat');
+        //var chat = new FirechatUI(chatRef, document.getElementById("firechat-wrapper"));
+        function initFirechatUI(firebaseRef){
+            var chat = new FirechatUI(firebaseRef, document.getElementById("firechat-wrapper"));
+            //TODO: cleanup user shit
+            chat.setUser('<user-id>', '<display-name>');
+        }
+    </script>
+
     <script type="text/javascript">
       
       // FirebaseSimpleLogin demo instantiation
@@ -45,9 +50,9 @@
         } else if (user) {
           // user authenticated with Firebase
           alert('User ID: ' + user.id + ', Provider: ' + user.provider);
-          
+          initFirechatUI(firebaseRef);
           // Log out so we can log in again with a different provider.
-          auth.logout();
+          //auth.logout();
         } else {
           // user is logged out
         }
